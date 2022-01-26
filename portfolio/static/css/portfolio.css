@@ -1,0 +1,174 @@
+:root {
+  --bgcolor1: #FFFFFF;
+  --bgcolor2: var(--bgcolor1);
+  --bodytext: #7c96ed;
+  --buttonbg: #7c96ed;
+  --buttontext: #fff;
+}
+
+.dark-mode:root {
+  --bgcolor1: #3B3B3B;
+}
+
+@font-face {
+    font-family: 'Custom';
+    src: url('../fonts/Raleway/Raleway-VariableFont_wghtf')
+}
+
+body {
+  background:linear-gradient(
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.2)),
+    url(../images/pexels-asad-photo-maldives-1198839.jpg);
+  background: var(--bgcolor1);
+  background-size: contain;
+  color: var(--bodytext);
+  font-family: 'Custom', sans-serif;
+  word-wrap: break-word;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+* {
+  transition-duration: 0.5s
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px
+}
+
+.profile-img {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-img img {
+  border: 1px solid var(--buttonbg);
+  height: 100%;
+  border-radius: 50%;
+}
+
+
+section {
+    min-height: 100vh;
+    display: flex;
+}
+
+.first-section {
+    align-items: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 70%;
+    /*background: rgba(255, 255, 255, 0.1);*/
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 90%;
+  }
+}
+
+
+.title {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.secondary-title {
+  font-size: 1.25rem;
+}
+
+
+.call-to-action-container {
+  margin-top: 10px;
+}
+
+.call-to-action {
+    background: var(--buttonbg);
+    color: var(--buttontext);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--buttonbg);
+  color: var(--buttontext);
+}
+
+.socialmedias {
+  font-size: 2rem;
+}
+
+.socialmedias a:hover {
+  transform: rotate(15deg);
+}
+
+a {
+  display: inline-block;
+  color: var(--buttonbg)
+}
+
+.second-section {
+  text-align: center;
+  justify-content: center;
+  /*background: #3B3B3B;*/
+}
+
+.portfolio-gallery {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.portfolio-gallery-item {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.portfolio-gallery-item-image {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#toggledark {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+}
+
+#toggledark:hover {
+  transform: rotate(360deg);
+}
+
+#togglesong {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  font-size: 2rem;
+}
+
+#togglesong:hover {
+  transform: rotate(15deg);
+}

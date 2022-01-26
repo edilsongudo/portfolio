@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Edilson Gudo Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='materialize/css/materialize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/fontawesome-free-5.15.2-web/css/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/portfolio.css') }}">
+</head>
+<body>
+    <audio src="../static/RedMoon_-_Never_Let_Go_(feat._Meron_Ryan)(128k).mp3"></audio>
+    <i id="togglesong" class="fal fa-headphones-alt"></i>
+    <i id="toggledark" class="fal fa-sun"></i>
+    <a class="btn btn-floating pulse" href="mailto:edilsongudo@gmail.com">
+        <i class="fal fa-envelope"></i>
+    </a>
+    <section class="first-section">
+        <div class="container">
+            <div class="nav">
+                <div class="profile-img">
+                    <img src="{{ url_for('static', filename='images/Edilson.jpg') }}">
+                </div>
+            </div>
+            <h1 class="title"></h1>
+            <h2 class="secondary-title">Django and Vue Fullstack Developer</h2>
+            <p id="ss">I <i class="fal fa-heart"></i> developing amazing web apps.
+                If you are seeking good communication, quality and a result that you will
+                <i class="fal fa-heart"></i> you can't be wrong, lets work together ;)
+            </p>
+            <div class="socialmedias">
+                <a href="https://linkedin.com/in/cristiangudo"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/edilsongudo"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/mentalidade_de_homem"><i class="fab fa-instagram"></i></a>
+                <!-- <a href="mailto:edilsongudo@gmail.com"><i class="fal fa-envelope"></i></a> -->
+            </div>
+            <div class="call-to-action-container">
+                <!-- <a class="call-to-action waves-effect" href="mailto:edilsongudo@gmail.com">
+                    Send Email
+                    <i class="fal fa-envelope"></i>
+                </a> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="second-section">
+        <div class="container">
+            <h2 class="title">Some Projects</h2>
+            <div>
+                <div class="portfolio-gallery">
+                    <!-- Project -->
+                    <div class="portfolio-gallery-item">
+                        <div>
+                            <h5>Music Social Media</h5>
+                            <p>A music streaming Platform built with django and javascript</p>
+                            <div class="portfolio-gallery-item-image">
+                                <img class="materialboxed" height="300" src="{{ url_for('static', filename='images/image3.jpg') }}">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project -->
+                    <div class="portfolio-gallery-item">
+                        <div>
+                            <h5>Linktr.ee & Bit.ly clone</h5>
+                            <p>Link In Bio Plaform + URL Shortner Service</p>
+                            <div class="portfolio-gallery-item-image">
+                                <img class="materialboxed" height="300" src="{{ url_for('static', filename='images/selflink.gif') }}">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project -->
+                    <div class="portfolio-gallery-item">
+                        <div>
+                            <h5>Password Manager</h5>
+                            <p>Store encrypted passwords using a master password</p>
+                            <div class="portfolio-gallery-item-image">
+                                <img class="materialboxed" height="300" src="{{ url_for('static', filename='images/pm.gif') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='materialize/js/materialize.js') }}"></script>
+    <script>
+      $(document).ready(function(){
+        $('.materialboxed').materialbox();
+      });
+
+      var i = 0
+      var text = "I'm Edilson :)"
+      var speed = 100
+
+      function typeWriter() {
+        if (i < text.length) {
+            document.querySelector(".title").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed)
+        }
+      }
+      typeWriter()
+
+      let html = document.querySelector("html")
+      let checkbox = document.querySelector("#toggledark")
+      checkbox.addEventListener('click', function() {
+        if (checkbox.classList.contains('fa-moon')) {
+            checkbox.classList.remove('fa-moon')
+            checkbox.classList.add('fa-sun')
+        } else {
+            checkbox.classList.remove('fa-sun')
+            checkbox.classList.add('fa-moon')
+        }
+        html.classList.toggle('dark-mode')
+      })
+
+      let audiocheckbox = document.querySelector("#togglesong")
+      let audio = document.querySelector('audio')
+      audiocheckbox.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play()
+        } else {
+            audio.pause()
+        }
+      })
+    </script>
+</body>
+</html>
