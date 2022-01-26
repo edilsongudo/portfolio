@@ -24,10 +24,10 @@
                 </div>
             </div>
             <h1 class="title"></h1>
-            <h2 class="secondary-title">Django and Vue Fullstack Developer</h2>
-            <p id="ss">I <i class="fal fa-heart"></i> developing amazing web apps.
-                If you are seeking good communication, quality and a result that you will
-                <i class="fal fa-heart"></i> you can't be wrong, lets work together ;)
+            <h2 class="secondary-title">Fullstack Developer</h2>
+            <p id="ss">I <i class="fal fa-heart"></i> developing amazing web apps with Django and Vue.js.
+                <br>If you are seeking quality, good communication, and a result that you will
+                <i class="fal fa-heart"></i>, you can't be wrong, lets work together ;)
             </p>
             <div class="socialmedias">
                 <a href="https://linkedin.com/in/cristiangudo"><i class="fab fa-linkedin"></i></a>
@@ -83,6 +83,45 @@
             </div>
         </div>
     </section>
+    <section class="third-section">
+      <div class="container">
+        <h3>Why Me?</h3>
+        <ul>
+          <li>
+            <p>
+              I am a good communicator. I will update you daily,
+              and I am open to talking with you at any moment during the day
+              in the platform of your choice about the progress of the job;
+            </p>
+          </li>
+          <li>
+            <p>
+              I will make how many revisions are necessary.
+              I will only stop working on the project when you are 100% satisfied;
+            </p>
+          </li>
+          <li>
+            <p>
+              I have good technical skills but most importantly I am a hard worker;
+            </p>
+          </li>
+          <li>
+            <p>
+              I will commit more than 3 hours per day to your project (freelancing);
+            </p>
+          </li>
+          <li>
+            <p>
+              I take great care to accept an offer. I only accept projects
+              I am very confident that I can finish successfully;
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+   <footer>
+        <div>Made with <i class="fal fa-heart"></i> by Edilson Gudo</div>
+    </footer>
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='materialize/js/materialize.js') }}"></script>
     <script>
@@ -105,6 +144,7 @@
 
       let html = document.querySelector("html")
       let checkbox = document.querySelector("#toggledark")
+      let rot = 360
       checkbox.addEventListener('click', function() {
         if (checkbox.classList.contains('fa-moon')) {
             checkbox.classList.remove('fa-moon')
@@ -113,6 +153,8 @@
             checkbox.classList.remove('fa-sun')
             checkbox.classList.add('fa-moon')
         }
+        checkbox.style.transform = "rotate(" + rot + "deg)"
+        rot += 360
         html.classList.toggle('dark-mode')
       })
 

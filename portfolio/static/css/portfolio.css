@@ -12,7 +12,7 @@
 
 @font-face {
     font-family: 'Custom';
-    src: url('../fonts/Raleway/Raleway-VariableFont_wghtf')
+    src: url('../fonts/CeraProMedium.woff2')
 }
 
 body {
@@ -59,6 +59,7 @@ body {
 section {
     min-height: 100vh;
     display: flex;
+    align-items: center;
 }
 
 .first-section {
@@ -158,7 +159,6 @@ a {
 }
 
 #toggledark:hover {
-  transform: rotate(360deg);
 }
 
 #togglesong {
@@ -171,4 +171,13 @@ a {
 
 #togglesong:hover {
   transform: rotate(15deg);
+}
+
+footer {
+  background: var(--buttonbg);
+  color: var(--buttontext);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
