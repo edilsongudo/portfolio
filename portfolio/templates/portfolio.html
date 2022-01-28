@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Edilson Gudo Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='devicon-master/devicon.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='materialize/css/materialize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/fontawesome-free-5.15.2-web/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/portfolio.css') }}">
@@ -12,9 +13,10 @@
 <body>
     <audio src="../static/RedMoon_-_Never_Let_Go_(feat._Meron_Ryan)(128k).mp3"></audio>
     <i id="togglesong" class="fal fa-headphones-alt"></i>
+    <i class="devicon-android-original"></i>
     <i id="toggledark" class="fal fa-sun"></i>
     <a class="btn btn-floating pulse" href="mailto:edilsongudo@gmail.com">
-        <i class="fal fa-envelope"></i>
+        <i class="fal fa-pen"></i>
     </a>
     <section class="first-section">
         <div class="container">
@@ -119,8 +121,29 @@
         </ul>
       </div>
     </section>
+    <section>
+      <div class="container">
+          <h3>My Best Stacks</h3>
+          <div class="flex">
+            <div class="icon-container"><i class="devicon-django-plain stack_icon"></i><div>Django</div></div>
+            <div class="icon-container"><i class="devicon-flask-plain stack_icon"></i><div>Flask</div></div>
+            <div class="icon-container"><i class="devicon-javascript-plain stack_icon"></i><div>Javascript</div></div>
+            <div class="icon-container"><i class="devicon-vuejs-plain stack_icon"></i><div>Vue</div></div>
+            <div class="icon-container"><i class="devicon-nodejs-plain stack_icon"></i><div>Node js</div></div>
+            <div class="icon-container"><i class="devicon-css3-plain stack_icon"></i><div>CSS3</div></div>
+            <div class="icon-container"><i class="devicon-github-plain stack_icon"></i><div>Github</div></div>
+            <div class="icon-container"><i class="devicon-git-plain stack_icon"></i><div>Git</div></div>
+            <div class="icon-container"><i class="devicon-jquery-plain stack_icon"></i><div>Jquery</div></div>
+            <div class="icon-container"><i class="devicon-debian-plain stack_icon"></i><div>Debian</div></div>
+            <div class="icon-container"><i class="devicon-mysql-plain stack_icon"></i><div>MySql</div></div>
+            <div class="icon-container"><i class="devicon-python-plain stack_icon"></i><div>Python</div></div>
+          </div>
+      </div>
+    </section>
    <footer>
-        <div>Made with <i class="fal fa-heart"></i> by Edilson Gudo</div>
+        <div>Made with <i class="fal fa-heart"></i> by Edilson Gudo
+          <br> © 2022
+        </div>
     </footer>
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='materialize/js/materialize.js') }}"></script>
