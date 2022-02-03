@@ -4,38 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Edilson Gudo Portfolio</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='devicon-master/devicon.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='materialize/css/materialize.css') }}">
+    <title>Edilson Gudo | Portfolio - Web Developer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/aos-master/dist/aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/devicon-master/devicon.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/materialize/css/materialize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/fontawesome-free-5.15.2-web/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/portfolio.css') }}">
 </head>
 <body>
-    <audio src="../static/RedMoon_-_Never_Let_Go_(feat._Meron_Ryan)(128k).mp3"></audio>
-    <i id="togglesong" class="fal fa-headphones-alt"></i>
-    <i class="devicon-android-original"></i>
-    <i id="toggledark" class="fal fa-sun"></i>
+    <div class="nav">
+        <div id="colorpickersection">
+            <div id="colorpickercontainer">
+                <span class="fal fa-palette top-icon" id="toggle-theme-picker"></span>
+                <div class="theme-picker">
+                    <span id="color3" class="color"
+                        data-color1="#1cd8d2" data-color2="#93edc7"
+                        style="background: linear-gradient(#1cd8d2, #93edc7)">
+                    </span>
+                    <span id="color4" class="color"
+                        data-color1="#de6262" data-color2="#ffb88c"
+                        style="background: linear-gradient(#de6262, #ffb88c)">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <i id="volume-mute" class="fal fa-volume top-icon"></i>
+        <i id="togglesong" class="fal fa-headphones-alt top-icon"></i>
+        <i id="toggledark" class="fal fa-sun top-icon"></i>
+    </div>
+
     <a class="btn btn-floating pulse" href="mailto:edilsongudo@gmail.com">
         <i class="fal fa-pen"></i>
     </a>
     <section class="first-section">
-        <div class="container">
-            <div class="nav">
+        <div data-aos="fade-up" class="container">
+            <div class="">
                 <div class="profile-img">
                     <img src="{{ url_for('static', filename='images/Edilson.jpg') }}">
                 </div>
             </div>
-            <h1 class="title"></h1>
-            <h2 class="secondary-title">Fullstack Developer</h2>
-            <p id="ss">I <i class="fal fa-heart"></i> developing amazing web apps with Django and Vue.js.
-                <br>If you are seeking quality, good communication, and a result that you will
-                <i class="fal fa-heart"></i>, you can't be wrong, lets work together ;)
+            <h1 class="title">I'm Edilson :)</h1>
+            <h2 class="secondary-title">Web Developer</h2>
+            <p>
+                I <i class="fal fa-heart"></i> developing interactive web apps with Django and Vue.js.
+                <br>
+                If you are seeking quality, good communication,
+                and a result that you will <i class="fal fa-heart"></i>,
+                you can't be wrong by considering me for your next project :)
             </p>
             <div class="socialmedias">
                 <a href="https://linkedin.com/in/cristiangudo"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/edilsongudo"><i class="fab fa-github"></i></a>
                 <a href="https://instagram.com/mentalidade_de_homem"><i class="fab fa-instagram"></i></a>
-                <!-- <a href="mailto:edilsongudo@gmail.com"><i class="fal fa-envelope"></i></a> -->
             </div>
             <div class="call-to-action-container">
                 <!-- <a class="call-to-action waves-effect" href="mailto:edilsongudo@gmail.com">
@@ -46,36 +66,39 @@
         </div>
     </section>
 
-    <section class="second-section">
-        <div class="container">
-            <h2 class="title">Some Projects</h2>
+    <section class="second-section" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
+            <h2 data-aos="fade-up" class="title">Some Projects</h2>
             <div>
                 <div class="portfolio-gallery">
                     <!-- Project -->
-                    <div class="portfolio-gallery-item">
+                    <div data-aos="fade-up" class="portfolio-gallery-item">
                         <div>
                             <h5>Music Social Media</h5>
-                            <p>A music streaming Platform built with django and javascript</p>
+                            <p>A music streaming platform built with django and javascript</p>
+                            <button class="tellmore" id="tm1">Read more</button>
                             <div class="portfolio-gallery-item-image">
                                 <img class="materialboxed" height="300" src="{{ url_for('static', filename='images/image3.jpg') }}">
                             </div>
                         </div>
                     </div>
                     <!-- Project -->
-                    <div class="portfolio-gallery-item">
+                    <div data-aos="fade-up" class="portfolio-gallery-item">
                         <div>
                             <h5>Linktr.ee & Bit.ly clone</h5>
                             <p>Link In Bio Plaform + URL Shortner Service</p>
+                            <button class="tellmore" id="tm2">Read more</button>
                             <div class="portfolio-gallery-item-image">
                                 <img class="materialboxed" height="300" src="{{ url_for('static', filename='images/selflink.gif') }}">
                             </div>
                         </div>
                     </div>
                     <!-- Project -->
-                    <div class="portfolio-gallery-item">
+                    <div data-aos="fade-up" class="portfolio-gallery-item">
                         <div>
                             <h5>Password Manager</h5>
                             <p>Store encrypted passwords using a master password</p>
+                            <button class="tellmore" id="tm3">Read more</button>
                             <div class="portfolio-gallery-item-image">
                                 <img class="materialboxed" height="300" src="{{ url_for('static', filename='images/pm.gif') }}">
                             </div>
@@ -85,8 +108,9 @@
             </div>
         </div>
     </section>
+
     <section class="third-section">
-      <div class="container">
+      <div data-aos="fade-up" class="container">
         <h3>Why Me?</h3>
         <ul>
           <li>
@@ -121,23 +145,25 @@
         </ul>
       </div>
     </section>
-    <section>
-      <div class="container">
-          <h3>My Best Stacks</h3>
+    <section data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
+          <h3 data-aos="fade-up">Stacks</h3>
+          <p>Combination of powerful technologies that I am not limited to, but I like to use them to develop amazing things</p>
           <div class="flex">
-            <div class="icon-container"><i class="devicon-django-plain stack_icon"></i><div>Django</div></div>
-            <div class="icon-container"><i class="devicon-flask-plain stack_icon"></i><div>Flask</div></div>
-            <div class="icon-container"><i class="devicon-javascript-plain stack_icon"></i><div>Javascript</div></div>
-            <div class="icon-container"><i class="devicon-vuejs-plain stack_icon"></i><div>Vue</div></div>
-            <div class="icon-container"><i class="devicon-nodejs-plain stack_icon"></i><div>Node js</div></div>
-            <div class="icon-container"><i class="devicon-css3-plain stack_icon"></i><div>CSS3</div></div>
-            <div class="icon-container"><i class="devicon-github-plain stack_icon"></i><div>Github</div></div>
-            <div class="icon-container"><i class="devicon-git-plain stack_icon"></i><div>Git</div></div>
-            <div class="icon-container"><i class="devicon-jquery-plain stack_icon"></i><div>Jquery</div></div>
-            <div class="icon-container"><i class="devicon-debian-plain stack_icon"></i><div>Debian</div></div>
-            <div class="icon-container"><i class="devicon-mysql-plain stack_icon"></i><div>MySql</div></div>
-            <div class="icon-container"><i class="devicon-python-plain stack_icon"></i><div>Python</div></div>
+            <div class="icon-container"><i class="devicon-python-plain  stack_icon"></i><div>Python</div></div>
+            <div class="icon-container"><i class="devicon-django-plain  stack_icon"></i><div>Django</div></div>
+            <div class="icon-container"><i class="devicon-flask-plain  stack_icon"></i><div>Flask</div></div>
+            <div class="icon-container"><i class="devicon-javascript-plain  stack_icon"></i><div>Javascript</div></div>
+            <div class="icon-container"><i class="devicon-vuejs-plain  stack_icon"></i><div>Vue</div></div>
+            <div class="icon-container"><i class="devicon-nodejs-plain  stack_icon"></i><div>Node js</div></div>
+            <div class="icon-container"><i class="devicon-jquery-plain  stack_icon"></i><div>Jquery</div></div>
+            <div class="icon-container"><i class="devicon-css3-plain  stack_icon"></i><div>CSS3</div></div>
+            <div class="icon-container"><i class="devicon-github-plain  stack_icon"></i><div>Github</div></div>
+            <div class="icon-container"><i class="devicon-git-plain  stack_icon"></i><div>Git</div></div>
+            <div class="icon-container"><i class="devicon-linux-plain  stack_icon"></i><div>Linux</div></div>
+            <div class="icon-container"><i class="devicon-docker-plain  stack_icon"></i><div>Docker</div></div>
           </div>
+            <p>Got questions? Click the floating pen icon to send me an email :)</p>
       </div>
     </section>
    <footer>
@@ -145,51 +171,24 @@
           <br> © 2022
         </div>
     </footer>
+    <script type="text/javascript">$SCRIPT_ROOT = {{ request.script_root|tojson }};</script>
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='materialize/js/materialize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sweetalert.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tellmore.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/playsongs.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/themepicker.js') }}"></script>
+    <script src="{{ url_for('static', filename='libraries/aos-master/dist/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='libraries/materialize/js/materialize.js') }}"></script>
     <script>
-      $(document).ready(function(){
-        $('.materialboxed').materialbox();
-      });
+        AOS.init({
+            duration: 700,
+            offset: 250,
+        });
 
-      var i = 0
-      var text = "I'm Edilson :)"
-      var speed = 100
-
-      function typeWriter() {
-        if (i < text.length) {
-            document.querySelector(".title").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, speed)
-        }
-      }
-      typeWriter()
-
-      let html = document.querySelector("html")
-      let checkbox = document.querySelector("#toggledark")
-      let rot = 360
-      checkbox.addEventListener('click', function() {
-        if (checkbox.classList.contains('fa-moon')) {
-            checkbox.classList.remove('fa-moon')
-            checkbox.classList.add('fa-sun')
-        } else {
-            checkbox.classList.remove('fa-sun')
-            checkbox.classList.add('fa-moon')
-        }
-        checkbox.style.transform = "rotate(" + rot + "deg)"
-        rot += 360
-        html.classList.toggle('dark-mode')
-      })
-
-      let audiocheckbox = document.querySelector("#togglesong")
-      let audio = document.querySelector('audio')
-      audiocheckbox.addEventListener('click', function() {
-        if (audio.paused) {
-            audio.play()
-        } else {
-            audio.pause()
-        }
-      })
+        $(document).ready(function(){
+            $('.materialboxed').materialbox();
+        });
     </script>
 </body>
 </html>
