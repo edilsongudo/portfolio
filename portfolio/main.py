@@ -11,6 +11,7 @@ from flask import (
 )
 import os
 import random
+from utils import get_meta
 
 
 app = Flask(__name__)
@@ -24,7 +25,9 @@ def home():
 @app.route('/songs')
 def get_songs():
     songs = os.listdir('static/audio')
-    # random.shuffle(songs)
+    for song in songs:
+        print(get_meta('static/audio', 'static/albumArts/', song,), flush=True)
+    random.shuffle(songs)
     print(songs, flush=True)
     return jsonify(songs=songs)
 

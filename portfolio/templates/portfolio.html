@@ -10,13 +10,47 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/materialize/css/materialize.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/fontawesome-free-5.15.2-web/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/portfolio.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audioPlayer.css') }}">
 </head>
 <body>
+    <div class="music-player-modal">
+        <div class="music-container" id="music-container">
+            <i class="fal fa-chevron-down" id="close-player"></i>
+
+          <div class="img-container">
+            <div id="music-icon"><i class="fas fa-music"></i></div>
+            <img src="images/ukulele.jpg" alt="music-cover" id="cover" />
+          </div>
+
+          <div class="music-info">
+            <h4 id="title"></h4>
+            <div class="progress-container" id="progress-container">
+              <div class="progress" id="progress"></div>
+            </div>
+          </div>
+
+          <div class="navigation">
+            <button id="prev" class="action-btn">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+              <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+              <i class="fas fa-forward"></i>
+            </button>
+          </div>
+        </div>
+    </div>
     <div class="nav">
         <div id="colorpickersection">
             <div id="colorpickercontainer">
                 <span class="fal fa-palette top-icon" id="toggle-theme-picker"></span>
                 <div class="theme-picker">
+                    <span id="color2" class="color"
+                        data-color1="#BE98D0" data-color2="#319CBF"
+                        style="background: linear-gradient(#BE98D0, #319CBF)">
+                    </span>
                     <span id="color3" class="color"
                         data-color1="#1cd8d2" data-color2="#93edc7"
                         style="background: linear-gradient(#1cd8d2, #93edc7)">
@@ -172,14 +206,16 @@
         </div>
     </footer>
     <script type="text/javascript">$SCRIPT_ROOT = {{ request.script_root|tojson }};</script>
-    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/sweetalert.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/tellmore.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/playsongs.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/themepicker.js') }}"></script>
+    <script src="{{ url_for('static', filename='libraries/jquery/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='libraries/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ url_for('static', filename='libraries/aos-master/dist/aos.js') }}"></script>
     <script src="{{ url_for('static', filename='libraries/materialize/js/materialize.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/audioPlayer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/playsongs.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tellmore.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/themepicker.js') }}"></script>
     <script>
         AOS.init({
             duration: 700,

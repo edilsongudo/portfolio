@@ -1,0 +1,98 @@
+.music-player-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(120%);
+  height: 100%;
+  box-shadow: rgba(213, 221, 236, 0.4) 20px 20px 20px 20px;
+  z-index: 1000;
+  transition-duration: 0.5s;
+  background-image: linear-gradient(90deg, var(--bgcolor1), var(--bgcolor1));
+  color: var(--bodytext);
+}
+
+.music-player-modal-show {
+  transform: none;
+}
+
+.music-container {
+  position: relative;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+#close-player {
+  font-size: 2rem;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+}
+
+
+.music-info #title {
+  font-size: 1rem;
+}
+
+.img-container {
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.img-container img#cover {
+  margin: 0 auto;
+  width: 270px;
+  height: 270px;
+}
+
+#music-icon i {
+  width: 270px;
+  height: 270px;
+  background-color: rgba(255,255,255, 0.1);
+  color: var(--bodytext);
+  font-size: 18rem;
+}
+
+.music-container #title {
+    height: 50px;
+}
+
+.progress {
+  background-image: linear-gradient(90deg, var(--buttonbg1), var(--buttonbg2));
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.progress-container {
+background: var(--bodytext);
+border-radius: 5px;
+cursor: pointer;
+margin: 10px 0;
+height: 4px;
+width: 100%;
+}
+
+.music-player-modal button {
+  border: transparent;
+  color: var(--bodytext);
+  font-size: 2rem;
+  background: transparent;
+}
+
+
+@media (max-width: 440px) {
+  .music-container {
+    margin-top: 100px;
+      max-width: 85%;
+  }
+}

@@ -6,6 +6,13 @@ toggle_theme_picker.addEventListener('click', ()=> {
     theme_picker.style.opacity = "100%"
 })
 
+
+let datacolor1 = localStorage.getItem('--buttonbg1')
+let datacolor2 = localStorage.getItem('--buttonbg2')
+
+document.querySelector(':root').style.setProperty('--buttonbg1', datacolor1)
+document.querySelector(':root').style.setProperty('--buttonbg2', datacolor2)
+
 colors = document.querySelectorAll('.color')
 colors.forEach(color => {
     color.addEventListener('click', ()=> {
@@ -21,6 +28,9 @@ colors.forEach(color => {
         let datacolor2 = color.getAttribute('data-color2')
         document.querySelector(':root').style.setProperty('--buttonbg1', datacolor1)
         document.querySelector(':root').style.setProperty('--buttonbg2', datacolor2)
+
+        localStorage.setItem('--buttonbg1', datacolor1)
+        localStorage.setItem('--buttonbg2', datacolor2)
 
         toggle_theme_picker.style.display = "block"
         theme_picker.style.width = "0"

@@ -1,55 +1,13 @@
-// Handle Headphones icon Click
-let audiocheckbox = document.querySelector("#togglesong")
+let audiocheckbox = document.querySelector('#togglesong')
+let playerModal = document.querySelector('.music-player-modal')
+let closeBtn = document.querySelector('#close-player')
+
+// Show player
 audiocheckbox.addEventListener('click', function() {
-    get_songs()
+    playerModal.classList.add('music-player-modal-show')
 })
 
-//Create Audio
-document.body.appendChild(document.createElement('audio'))
-
-// Handle Mute icon
-let volume_mute = document.querySelector('#volume-mute')
-
-volume_mute.addEventListener('click', function() {
-    let audio = document.querySelector('audio')
-
-    if (audio.paused) {
-        volume_mute.classList.remove('fa-volume-mute')
-        volume_mute.classList.add('fa-volume')
-        audio.play()
-    } else {
-        volume_mute.classList.remove('fa-volume')
-        volume_mute.classList.add('fa-volume-mute')
-        audio.pause()
-    }
+// Hide player
+closeBtn.addEventListener('click', function () {
+    playerModal.classList.remove('music-player-modal-show')
 })
-
-function playAudio(audios) {
-    let audio_index = Number(localStorage.getItem('audio_index'))
-
-    if (audio_index === null) {
-        audio_index = 0
-    }
-
-    audio_index += 1
-    if (audio_index == (audios.length)) {
-        audio_index = 0
-    }
-
-    let audio = document.querySelector('audio')
-    audio.src = "../static/audio/" + audios[audio_index]
-    audio.play()
-    volume_mute.classList.remove('fa-volume-mute')
-    volume_mute.classList.add('fa-volume')
-    volume_mute.style.display = 'block'
-    localStorage.setItem('audio_index', audio_index)
-  }
-
-function get_songs() {
-    $.getJSON($SCRIPT_ROOT + '/songs', {
-    }, function(data) {
-        playAudio(data['songs'])
-    });
-}
-
-
