@@ -10,10 +10,15 @@
 }
 
 .dark-mode:root {
-  --bgcolor1: #3B3B3B;
-  --titlecolor: #fff;
-  --bodytext: #fff;
-  --iconcolor: #fff;
+  --bgcolor1: #212121;
+  --titlecolor: #ededed;
+  --bodytext: #ededed;
+  --iconcolor: #ededed;
+}
+
+button {
+  border: transparent;
+  background: transparent;
 }
 
 a {
@@ -64,22 +69,16 @@ body {
   font-size: 1.25rem;
 }
 
-.color {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: linear-gradient(var(--buttonbg1), var(--buttonbg2));
-  margin-right: 5px;
+#colorpickercontainer {
+  position: relative;
 }
 
 .theme-picker {
   display: flex;
-  justify-content: center;
-  width: 0px;
+  justify-content: flex-start;
+  transform: translateX(100%);
   opacity: 0;
   transition-duration: 0.5s;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #toggle-theme-picker {
@@ -88,6 +87,8 @@ body {
   margin-right: auto;
   cursor: pointer;
   font-size: 2rem;
+  position: absolute;
+  right: 0;
 }
 
 #colorpickersection {
@@ -99,8 +100,12 @@ body {
   height: 30px;
 }
 
-.colorpickercontainer {
-  position: relative;
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(var(--buttonbg1), var(--buttonbg2));
+  margin-right: 5px;
 }
 
 .nav {

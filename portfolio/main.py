@@ -27,8 +27,6 @@ def get_songs():
     songs = os.listdir('static/audio')
     for song in songs:
         print(get_meta('static/audio', 'static/albumArts/', song,), flush=True)
-    random.shuffle(songs)
-    print(songs, flush=True)
     return jsonify(songs=songs)
 
 

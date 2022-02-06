@@ -2,7 +2,7 @@ let toggle_theme_picker = document.querySelector('#toggle-theme-picker')
 let theme_picker =  document.querySelector('.theme-picker')
 toggle_theme_picker.addEventListener('click', ()=> {
     toggle_theme_picker.style.display = "none"
-    theme_picker.style.width = "100%"
+    theme_picker.style.transform = "none"
     theme_picker.style.opacity = "100%"
 })
 
@@ -33,7 +33,7 @@ colors.forEach(color => {
         localStorage.setItem('--buttonbg2', datacolor2)
 
         toggle_theme_picker.style.display = "block"
-        theme_picker.style.width = "0"
+        theme_picker.style.transform = "translateX(100%)"
         theme_picker.style.opacity = "0"
     })
 })

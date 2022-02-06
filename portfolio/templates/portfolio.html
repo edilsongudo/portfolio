@@ -11,11 +11,21 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libraries/fontawesome-free-5.15.2-web/css/all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/portfolio.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audioPlayer.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/preloading.css') }}">
 </head>
 <body>
+    <div class="preloading">
+        <div>
+            <div class="dot dot1"></div>
+            <div class="dot dot2"></div>
+            <div class="dot dot3"></div>
+        </div>
+    </div>
     <div class="music-player-modal">
         <div class="music-container" id="music-container">
-            <i class="fal fa-chevron-down" id="close-player"></i>
+            <button id="close-player">
+                <i class="fal fa-chevron-down"></i>
+            </button>
 
           <div class="img-container">
             <div id="music-icon"><i class="fas fa-music"></i></div>
@@ -26,6 +36,10 @@
             <h4 id="title"></h4>
             <div class="progress-container" id="progress-container">
               <div class="progress" id="progress"></div>
+                <div id="progress-time">
+                    <span class="current"></span>
+                    <span class="duration"></span>
+                </div>
             </div>
           </div>
 
@@ -46,7 +60,7 @@
         <div id="colorpickersection">
             <div id="colorpickercontainer">
                 <span class="fal fa-palette top-icon" id="toggle-theme-picker"></span>
-                <div class="theme-picker">
+                <span class="theme-picker">
                     <span id="color2" class="color"
                         data-color1="#BE98D0" data-color2="#319CBF"
                         style="background: linear-gradient(#BE98D0, #319CBF)">
@@ -59,7 +73,7 @@
                         data-color1="#de6262" data-color2="#ffb88c"
                         style="background: linear-gradient(#de6262, #ffb88c)">
                     </span>
-                </div>
+                </span>
             </div>
         </div>
         <i id="volume-mute" class="fal fa-volume top-icon"></i>
@@ -225,6 +239,10 @@
         $(document).ready(function(){
             $('.materialboxed').materialbox();
         });
+
+        $(window).on('load', function () {
+            $('.preloading').fadeOut('slow')
+        })
     </script>
 </body>
 </html>

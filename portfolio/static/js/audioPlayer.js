@@ -11,8 +11,8 @@ const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
-const currTime = document.querySelector('#currTime');
-const durTime = document.querySelector('#durTime');
+const currentTimeDiv = document.querySelector('.current')
+const durationDiv = document.querySelector('.duration')
 const musicIcon = document.querySelector('#music-icon')
 
 
@@ -29,6 +29,7 @@ getSongs().then(response => {
 
     // Keep track of song
     let songIndex = Number(localStorage.getItem('songIndex'));
+    console.log(songIndex)
     if (songIndex === null) {
         songIndex = 0
     }
@@ -40,19 +41,22 @@ getSongs().then(response => {
     // Update song details
     function loadSong(song) {
 
-      title.innerText = song;
       audio.src = `static/audio/${song}`;
       song = remove_extension(song)
+      title.innerText = song;
       let albumArtURL = `static/albumArts/${song}.jpg`
-      let albumArtURLExists = imageExists(`static/albumArts/${song}.jpg`)
-      if (albumArtURLExists) {
-            cover.style.display = "block"
-            cover.src = albumArtURL;
-            musicIcon.style.display = "none"
-      } else {
+      var img = new Image()
+      img.src = albumArtURL
+      img.onload = function () {
+        cover.style.display = "block"
+        cover.src = albumArtURL;
+        musicIcon.style.display = "none"
+      }
+      img.onerror = function() {
         cover.style.display = "none"
         musicIcon.style.display = "block"
       }
+
     }
 
     // Play song
@@ -79,12 +83,12 @@ getSongs().then(response => {
 
       if (songIndex < 0) {
         songIndex = songs.length - 1;
-        localStorage.setItem('songIndex', songIndex)
       }
 
       loadSong(songs[songIndex]);
 
       playSong();
+      localStorage.setItem('songIndex', songIndex)
     }
 
     // Next song
@@ -93,17 +97,26 @@ getSongs().then(response => {
 
       if (songIndex > songs.length - 1) {
         songIndex = 0;
-        localStorage.setItem('songIndex', songIndex)
       }
 
       loadSong(songs[songIndex]);
 
       playSong();
+      localStorage.setItem('songIndex', songIndex)
     }
 
     // Update progress bar
     function updateProgress(e) {
       const { duration, currentTime } = e.srcElement;
+
+      var minutes = Math.floor(currentTime / 60)
+      var seconds = Math.floor(currentTime % 60)
+      currentTimeDiv.innerHTML = `${('0' + minutes).slice(-2)}:${('0' + seconds).slice(-2)}`
+
+      var minutes2 = Math.floor(duration / 60)
+      var seconds2 = Math.floor(duration % 60)
+      durationDiv.innerHTML = `${('0' + minutes2).slice(-2)}:${('0' + seconds2).slice(-2)}`
+
       const progressPercent = (currentTime / duration) * 100;
       progress.style.width = `${progressPercent}%`;
     }
@@ -116,69 +129,6 @@ getSongs().then(response => {
 
       audio.currentTime = (clickX / width) * duration;
     }
-
-    //get duration & currentTime for Time of song
-    function DurTime (e) {
-        const {duration,currentTime} = e.srcElement;
-        var sec;
-        var sec_d;
-
-        // define minutes currentTime
-        let min = (currentTime==null)? 0:
-         Math.floor(currentTime/60);
-         min = min <10 ? '0'+min:min;
-
-        // define seconds currentTime
-        function get_sec (x) {
-            if(Math.floor(x) >= 60){
-
-                for (var i = 1; i<=60; i++){
-                    if(Math.floor(x)>=(60*i) && Math.floor(x)<(60*(i+1))) {
-                        sec = Math.floor(x) - (60*i);
-                        sec = sec <10 ? '0'+sec:sec;
-                    }
-                }
-            }else{
-                sec = Math.floor(x);
-                sec = sec <10 ? '0'+sec:sec;
-             }
-        }
-
-        get_sec (currentTime,sec);
-
-        // change currentTime DOM
-        currTime.innerHTML = min +':'+ sec;
-
-        // define minutes duration
-        let min_d = (isNaN(duration) === true)? '0':
-            Math.floor(duration/60);
-         min_d = min_d <10 ? '0'+min_d:min_d;
-
-
-         function get_sec_d (x) {
-            if(Math.floor(x) >= 60){
-
-                for (var i = 1; i<=60; i++){
-                    if(Math.floor(x)>=(60*i) && Math.floor(x)<(60*(i+1))) {
-                        sec_d = Math.floor(x) - (60*i);
-                        sec_d = sec_d <10 ? '0'+sec_d:sec_d;
-                    }
-                }
-            }else{
-                sec_d = (isNaN(duration) === true)? '0':
-                Math.floor(x);
-                sec_d = sec_d <10 ? '0'+sec_d:sec_d;
-             }
-        }
-
-        // define seconds duration
-
-        get_sec_d (duration);
-
-        // change duration DOM
-        durTime.innerHTML = min_d +':'+ sec_d;
-
-    };
 
     // Event listeners
     playBtn.addEventListener('click', () => {
@@ -203,9 +153,6 @@ getSongs().then(response => {
 
     // Song ends
     audio.addEventListener('ended', nextSong);
-
-    // Time of song
-    audio.addEventListener('timeupdate',DurTime);
 
 })
 
